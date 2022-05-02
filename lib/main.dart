@@ -1,4 +1,5 @@
-import 'package:de_certificate/screens/firstPage.dart';
+import 'package:de_certificate/screens/homePage.dart';
+import 'package:de_certificate/theme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,10 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      debugShowCheckedModeBanner: false,
+      title: 'Deeku_Certificate',
+      theme: De_certTheme().themeData,
       routes: {
         HomeScreen.id: ((context) => const HomeScreen()),
       },
