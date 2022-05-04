@@ -1,4 +1,6 @@
 import 'package:de_certificate/screens/homePage.dart';
+import 'package:de_certificate/screens/ins_log_sign.dart';
+import 'package:de_certificate/screens/username_generation.dart';
 import 'package:de_certificate/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +20,8 @@ class MyApp extends StatelessWidget {
       theme: De_certTheme().themeData,
       routes: {
         HomeScreen.id: ((context) => const HomeScreen()),
+        Ins_Log_Sign.id: ((context) => const Ins_Log_Sign()),
+        UserName.id: ((context) => const UserName())
       },
       initialRoute: HomeScreen.id,
     );

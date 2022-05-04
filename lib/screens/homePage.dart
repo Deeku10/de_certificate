@@ -1,9 +1,12 @@
 // ignore: file_names
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
-import 'dart:ui';
-
+import 'package:de_certificate/height_width.dart';
 import 'package:de_certificate/models/bg_card.dart';
+import 'package:de_certificate/models/button.dart';
+import 'package:de_certificate/screens/ins_log_sign.dart';
+import 'package:de_certificate/screens/username_generation.dart';
+import 'package:de_certificate/widgets/verticalSpace.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -12,8 +15,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var h = MediaQuery.of(context).size.height;
-    var w = MediaQuery.of(context).size.width;
+    var h = context.height;
+    var w = context.width;
 
     return BG_card(
       h: h,
@@ -25,61 +28,31 @@ class HomeScreen extends StatelessWidget {
           Button(
             h: h,
             w: w,
-            text: "Institution",
+            text: "Get User Name",
             color: const Color(0xffCFC3FB).withOpacity(0.93),
-            function: () {},
+            pageRoute: UserName.id,
           ),
-          SizedBox(
-            height: h * 0.07,
+          VerticalSpace(
+            h: h * 0.04,
+          ),
+          Text(
+            "Already have a user name?",
+            style: Theme.of(context)
+                .textTheme
+                .headline1
+                ?.copyWith(fontSize: h * 0.02),
+          ),
+          VerticalSpace(
+            h: h * 0.026,
           ),
           Button(
             h: h,
             w: w,
-            text: "User",
+            text: "let's Go",
             color: const Color(0xffA5FDF5).withOpacity(0.93),
-            function: () {},
+            pageRoute: Ins_Log_Sign.id,
           )
         ],
-      ),
-    );
-  }
-}
-
-class Button extends StatelessWidget {
-  const Button(
-      {Key? key,
-      required this.h,
-      required this.w,
-      required this.text,
-      required this.color,
-      required this.function})
-      : super(key: key);
-
-  final double h;
-  final double w;
-  final String text;
-  final Color color;
-  final Function function;
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        function;
-      },
-      child: Container(
-        height: h * 0.1,
-        width: w * 0.55,
-        decoration: BoxDecoration(
-            color: color, borderRadius: BorderRadius.circular(h * 0.015)),
-        child: Center(
-          child: Text(
-            text,
-            style: Theme.of(context)
-                .textTheme
-                .headline1
-                ?.copyWith(fontSize: h * 0.035),
-          ),
-        ),
       ),
     );
   }
